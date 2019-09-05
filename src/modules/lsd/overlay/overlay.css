@@ -1,0 +1,51 @@
+.lsd-overlay {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 9999;
+    position: absolute;
+    transition: all 0.2s ease;
+    top: 0;
+    pointer-events: none;
+}
+.lsd-overlay_container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 9999;
+    position: absolute;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(26, 26, 26, 0);
+    pointer-events: none;
+}
+.lsd-overlay_container.visible {
+    background-color: rgba(26, 26, 26, 0.95);
+    pointer-events: auto;
+}
+.lsd-overlay_container.visible .lsd-overlay_wrapper {
+    background-color: rgba(34, 34, 34, 1);
+    opacity: 1;
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+.lsd-overlay_wrapper {
+    max-height: 80vh;
+    max-width: 100vw;
+    margin-top: 10vh;
+    width: 760px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 9999;
+    position: absolute;
+    background-color: rgba(34, 34, 34, 1);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 16px;
+    opacity: 0;
+
+    color: white;
+}

@@ -1,0 +1,45 @@
+<template>
+    <div class="lsd-overlay" onclick={toggleOverlayParent}>
+        <div class={overlayClassName}>
+            <div class="lsd-overlay_wrapper">
+                <template if:true={selectedProjectData}>
+                    <div>SVG LOGO</div>
+                    <h3 if:true={selectedProjectData.title}>
+                        {selectedProjectData.title}
+                    </h3>
+                    <p if:true={selectedProjectData.dateLastWorkedOn}>
+                        Last worked on: {selectedProjectData.dateLastWorkedOn}
+                    </p>
+                    <template if:true={selectedProjectData.groups}>
+                        <div
+                            for:each={selectedProjectData.groups}
+                            for:item="group"
+                            key={group.id}
+                            data-uuid={group.id}
+                            onclick={toggleOverlay}
+                            class="lsd-overlay__project_group"
+                        >
+                            <h4>{group.title}</h4>
+                            <template if:true={group.links}>
+                                <div
+                                    for:each={group.links}
+                                    for:item="link_item"
+                                    key={link_item.id}
+                                    data-uuid={link_item.id}
+                                    onclick={toggleOverlay}
+                                    class="lsd-overlay__project_link"
+                                >
+                                    <p>{link_item.title}</p>
+                                    <a href={link_item.url} target="_blank"
+                                        >{link_item.url}</a
+                                    >
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                    <div class="lsd-overlay_container__group"></div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: #ffc87f;
+}
+h4 {
+    text-align: center;
+    color: #ffc87f;
+}
+.lsd-project__wrapper {
+    width: auto;
+    display: inline-block;
+    grid-gap: 10px;
+    margin: 0;
+    padding: 4px;
+}
+.lsd-project__wrapper li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 136px;
+    width: 136px;
+    float: left;
+    color: #ffc87f;
+    margin: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.lsd-project__wrapper li:hover {
+    opacity: 0.85;
+    transition: all 0.2s ease;
+}
+.lsd-project__wrapper li * {
+    pointer-events: none;
+}
+@media (min-width: 40em) {
+    .lsd-project__wrapper li {
+        height: 164px;
+        width: 164px;
+    }
+}
+@media (min-width: 60em) {
+    .lsd-project__wrapper li {
+        height: 208px;
+        width: 208px;
+    }
+}

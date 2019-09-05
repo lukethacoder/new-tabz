@@ -1,0 +1,12 @@
+.lsd-app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    float: left;
+}
+.lsd-app__wrapper {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    float: left;
+}

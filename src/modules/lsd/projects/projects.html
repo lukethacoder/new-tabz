@@ -1,0 +1,30 @@
+<template>
+    <template if:true={loading}>
+        <h4>Loading...</h4>
+    </template>
+    <template if:false={loading}>
+        <template if:true={error}>
+            <h4>Error - someone messed up</h4>
+        </template>
+        <template if:false={error}>
+            <ul class="lsd-project__wrapper">
+                <li
+                    for:each={projects}
+                    for:item="project"
+                    key={project.id}
+                    data-uuid={project.id}
+                    onclick={toggleOverlay}
+                    data-bg-color={project.brandColor}
+                    class="lsd-project__item"
+                >
+                    <lsd-project-single project={project}></lsd-project-single>
+                </li>
+            </ul>
+        </template>
+    </template>
+    <lsd-overlay
+        selected-project-id={selectedProjectId}
+        onoverlaytoggle={toggleOverlay}
+        overlay-class-name={overlayClassName}
+    ></lsd-overlay>
+</template>
