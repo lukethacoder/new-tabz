@@ -3,41 +3,93 @@
         <div class={overlayClassName}>
             <div class="lsd-overlay_wrapper">
                 <template if:true={selectedProjectData}>
-                    <div>SVG LOGO</div>
-                    <h3 if:true={selectedProjectData.title}>
-                        {selectedProjectData.title}
-                    </h3>
-                    <p if:true={selectedProjectData.dateLastWorkedOn}>
-                        Last worked on: {selectedProjectData.dateLastWorkedOn}
-                    </p>
-                    <template if:true={selectedProjectData.groups}>
+                    <div
+                        data-header-image="lsd-overlay_wrapper_image"
+                        class={showScrolledImageClass}
+                    >
                         <div
-                            for:each={selectedProjectData.groups}
-                            for:item="group"
-                            key={group.id}
-                            data-uuid={group.id}
-                            onclick={toggleOverlay}
-                            class="lsd-overlay__project_group"
+                            class="lsd-overlay_wrapper_image_src"
+                            data-logo={selectedProjectData.logo}
+                            data-brand-color={selectedProjectData.brandColor}
+                        ></div>
+                    </div>
+                    <div class={showScrolledHeaderClass}>
+                        <h3
+                            class="lsd-overlay_wrapper_title"
+                            if:true={selectedProjectData.title}
                         >
-                            <h4>{group.title}</h4>
-                            <template if:true={group.links}>
-                                <div
-                                    for:each={group.links}
-                                    for:item="link_item"
-                                    key={link_item.id}
-                                    data-uuid={link_item.id}
-                                    onclick={toggleOverlay}
-                                    class="lsd-overlay__project_link"
-                                >
-                                    <p>{link_item.title}</p>
-                                    <a href={link_item.url} target="_blank"
-                                        >{link_item.url}</a
+                            {selectedProjectData.title}
+                        </h3>
+                        <p
+                            class="lsd-overlay_wrapper_last_work"
+                            if:true={selectedProjectData.dateLastWorkedOn}
+                        >
+                            Last worked on:
+                            {selectedProjectData.dateLastWorkedOn}
+                        </p>
+                    </div>
+                    <div class="lsd-overlay_wrapper_content">
+                        <h3
+                            class="lsd-overlay_wrapper_title"
+                            if:true={selectedProjectData.title}
+                        >
+                            {selectedProjectData.title}
+                        </h3>
+                        <p
+                            class="lsd-overlay_wrapper_last_work"
+                            if:true={selectedProjectData.dateLastWorkedOn}
+                        >
+                            Last worked on:
+                            {selectedProjectData.dateLastWorkedOn}
+                        </p>
+                        <template if:true={selectedProjectData.groups}>
+                            <div
+                                for:each={selectedProjectData.groups}
+                                for:item="group"
+                                key={group.id}
+                                data-uuid={group.id}
+                                onclick={toggleOverlay}
+                                class="lsd-overlay__project_group"
+                            >
+                                <h4 class="lsd-overlay__project_group_title">
+                                    {group.title}
+                                </h4>
+                                <template if:true={group.links}>
+                                    <div
+                                        for:each={group.links}
+                                        for:item="link_item"
+                                        key={link_item.id}
+                                        data-uuid={link_item.id}
+                                        onclick={toggleOverlay}
                                     >
-                                </div>
-                            </template>
-                        </div>
-                    </template>
-                    <div class="lsd-overlay_container__group"></div>
+                                        <a
+                                            class="lsd-overlay__project_link"
+                                            href={link_item.url}
+                                            target="_blank"
+                                        >
+                                            <lsd-icon
+                                                icon={link_item.icon}
+                                            ></lsd-icon>
+                                            <div
+                                                class="lsd-overlay__project_link_meta"
+                                            >
+                                                <p
+                                                    class="lsd-overlay__project_link_meta_title"
+                                                >
+                                                    {link_item.title}
+                                                </p>
+                                                <p
+                                                    class="lsd-overlay__project_link_meta_url"
+                                                >
+                                                    {link_item.url}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
                 </template>
             </div>
         </div>
