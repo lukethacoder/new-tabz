@@ -4,4 +4,8 @@
 img {
     min-height: 48px;
     min-width: 48px;
+    max-width: 64px;
+    max-height: 64px;
+    height: 100%;
+    width: 100%;
 }
