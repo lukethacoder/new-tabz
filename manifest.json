@@ -3,9 +3,8 @@
     "description": "NewTabz, quick access to what you actually want!",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["management", "history", "storage"],
+    "permissions": ["cookies", "<all_urls>", "tabs"],
     "chrome_url_overrides": {
         "newtab": "index.html"
-    },
-    "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
+    }
 }
